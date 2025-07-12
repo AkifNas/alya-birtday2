@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday, Alya Damia!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6f2, #ffffff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #e91e63;
+      margin-bottom: 0.2em;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0.5em auto;
+    }
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: #ff5792;
+      animation: fall 6s linear infinite;
+    }
+    @keyframes fall {
+      0% {transform: translateY(-10%) rotate(0deg);}
+      100% {transform: translateY(110%) rotate(360deg);}
+    }
+    audio {
+      display: none;
+    }
+    .btn-play {
+      display: inline-block;
+      margin-top: 1em;
+      background-color: #e91e63;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+    <h1>Happy Birthday, Alya Damia!</h1>
+    <p>
+      “Happy birthday sayang, allwayss be happy and i hope you aree allways fine.
+      Thank youu for all the best and sweet moment with me.
+      Terima kasih banyak banyakk saya rinduu nakk jumpa awak balik senanye, harap kite boleh jumpa lagi.
+      Tapi buat masa nih kita terpaksa jauh dulu, tapi tak nak gitu harap sayang dapat UITM juga, harap sangat.
+    </p>
+    <p>
+      Dalam kotak nih ade handbag and jugakk power bank, senanye saya tak expect yang handbag besar tuu, bag tu merosakkan hadiah nih bagi saya, tak de mood dah nakk buat.
+      I really hope you happy with this gift. Thanks youuu lagi sekali 🫶🏻, dont worry murah je semua nih, jangan malu or segan saya lanje sebab saya nak.
+    </p>
+
+    <button class="btn-play" onclick="playPause()">Play / Pause Music</button>
+    <audio id="bg-music" loop>
+      <source src="https://cdn.pixabay.com/download/audio/2021/11/16/audio_6aca2f069f.mp3" type="audio/mp3">
+      <!-- Feel free to replace the URL above with your own music file -->
+    </audio>
+  </div>
+
+  <script>
+    // Create floating hearts
+    const heartsContainer = document.getElementById('hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+      heartsContainer.appendChild(heart);
+      heart.innerText = '💖';
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 500);
+
+    // Audio play/pause toggle
+    const bgMusic = document.getElementById('bg-music');
+    function playPause() {
+      if (bgMusic.paused) {
+        bgMusic.play();
+      } else {
+        bgMusic.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>
